@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import personallife from '../views/personallife.vue'
 import programmingskill from '../views/programmingskill.vue'
-import aboutit from '../views/aboutit.vue'
 import abouttip from '../views/about.vue'
 import calculator from '../views/Calculator.vue'
 import string from '../views/StringAppView.vue'
@@ -89,11 +88,7 @@ const router = createRouter({
       name: 'programmingskill',
       component: programmingskill
     },
-    {
-      path: '/aboutit',
-      name: 'aboutit',
-      component: aboutit
-    },
+    
     {
       path: '/abouttip',
       name: 'abouttip',
