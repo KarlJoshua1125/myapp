@@ -6,7 +6,6 @@
     >
       <v-tab value="one">Personal Life</v-tab>
       <v-tab value="two">Programming Skills</v-tab>
-      <v-tab value="three">Information Technology</v-tab>
       <v-tab value="four">About TIP</v-tab>
     </v-tabs>
 
@@ -17,10 +16,6 @@
         </v-window-item>
         <v-window-item value="two">
           <progskill/>
-        </v-window-item>
-
-        <v-window-item value="three">
-          <infot/>
         </v-window-item>
 
         <v-window-item value="four">
@@ -46,7 +41,7 @@
 import personallife from '@/views/personallife.vue';
 import progskill from '@/views/programmingskill.vue';
 import abouttip from '@/views/about.vue';
-import infot from '@/views/AboutIT.vue';
+
 
 
 </script>
