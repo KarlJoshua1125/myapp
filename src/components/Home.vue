@@ -1,18 +1,6 @@
 <template>
   <section class="home">
-    <h1>LH's Quiz 🐢</h1>
-
-    <p>Select the category</p>
-    <select @change="changeCategory">
-      <option
-        :key="category.name"
-        :id="category.id"
-        v-for="category in categories"
-      >
-        {{ category.name }}
-      </option>
-    </select>
-
+    <h1>Quiz App</h1>
     <p>Choose the difficulty</p>
     <div class="difficulties">
       <div>
@@ -63,7 +51,7 @@ export default {
   data() {
     return {
       categories: [],
-      selectedCategoryId: 0,
+      selectedCategoryId: 15,
       difficulty: "medium",
       questions: 10,
     };
@@ -71,23 +59,16 @@ export default {
 
   async mounted() {
     try {
-      const { data } = await axios.get("api_category.php");
+      const { data } = await axios.get("https://opentdb.com/api.php?amount=10&category=15");
       this.categories = data.trivia_categories;
-      this.selectedCategoryId = data.trivia_categories[0].id;
+     
     } catch (error) {
       console.error(error);
     }
   },
 
   methods: {
-    changeCategory(event) {
-      const options = event.target.options;
-      const index = options.selectedIndex;
-
-      if (index > -1) {
-        this.selectedCategoryId = options[index].id;
-      }
-    },
+    
     changeDifficulty(event) {
       this.difficulty = event.target.id;
     },
@@ -163,7 +144,7 @@ $bg: #11111c;
         width: 70px;
         text-align: center;
         color: black;
-        background: quiz.$difficulty-btn;
+        background: rgb(34, 34, 250);
       }
       &:hover input:not(:checked) ~ .button {
         background: quiz.$difficulty-hover;

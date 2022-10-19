@@ -40,21 +40,7 @@ export default {
     this.calculatePercentages();
     this.changeResultText();
 
-    anime({
-      targets: ".correct",
-      width: `${this.correctAnswersPercentage}%`,
-      easing: "linear",
-      loop: false,
-      duration: 900,
-    });
-
-    anime({
-      targets: ".wrong",
-      width: `${this.wrongAnswersPercentage}%`,
-      easing: "linear",
-      loop: false,
-      duration: 900,
-    });
+    
   },
   methods: {
     calculatePercentages() {

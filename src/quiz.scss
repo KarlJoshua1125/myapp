@@ -20,25 +20,8 @@ $final-screen-heading: #2b7ce7;
 $correct: #00e900;
 $wrong: #ff4a4a;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: inherit;
-}
 
-#app {
-  min-height: 100vh;
-  @include flex();
-  color: $text;
-  font-family: "Poppins", sans-serif;
-  background: $bg;
 
-  main {
-    width: 100%;
-    margin: 10px 0;
-    @include flex();
-  }
 
   button {
     transition: 0.3s;
@@ -58,4 +41,4 @@ $wrong: #ff4a4a;
       transform: scale(1.05);
     }
   }
-}
+

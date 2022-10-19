@@ -72,4 +72,11 @@
     },
   };
   </script>
+
+  <style lang="scss" scoped>
+  @use "../App.scss";
+  main{
+   @include App.flex(row)
+  }
+</style>
   
