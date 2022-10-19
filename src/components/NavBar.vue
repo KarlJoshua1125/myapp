@@ -35,6 +35,7 @@ const items = ref([
   { title: "Calculator", icon: "mdi-calculator", path: "/calculator" },
   { title: "Area Calculator", icon: "mdi-puzzle", path: "/area" },
   { title: "Test Page", icon: "mdi-account", path: "/test" },
+  { title: "Quiz App", icon: "mdi-account", path: "/quiz" },
 ]);
 
 function toggleDrawer() {

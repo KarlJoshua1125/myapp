@@ -16,6 +16,7 @@ import conscon from '../views/conscon.vue'
 import test from '../views/test.vue'
 import lab1 from '../views/Lab1.vue'
 import lab2 from '../views/Lab2.vue'
+import quiz from '../views/quizapp.vue'
 
 
 
@@ -115,6 +116,12 @@ const router = createRouter({
       path: '/test',
       name: 'test',
       component: test
+    },
+
+    {
+      path: '/quiz',
+      name: 'quiz',
+      component: quiz
     },
 
 
