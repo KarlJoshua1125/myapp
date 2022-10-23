@@ -1,6 +1,6 @@
 <template>
   <div class="flex-column justify-center mb-6">
-    <v-card class="pa-15" max-width="544" color="#EAE6E7">
+    <v-card class="pa-15" max-width="544" color="white">
       <v-card-title>Area Calculator</v-card-title>
       <p>1. Rectangle</p>
     

@@ -1,6 +1,6 @@
 <template >
     <div class=" justify-center mb-6">
-      <v-card class="pa-15" max-width="544" color="#EAE6E7">
+      <v-card class="pa-15" max-width="544" color="white">
         <v-card-title> Vowel Counter </v-card-title>
   
         <v-text-field label="Enter a String" v-model="input1"></v-text-field>

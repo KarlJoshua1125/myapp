@@ -1,7 +1,8 @@
 <template>
   <section class="home">
-    <h1>Quiz App</h1>
-    <p>Choose the difficulty</p>
+ <v-card class="card">
+  <h1>Video Game Quiz</h1>
+    <h2>Difficulty</h2>
     <div class="difficulties">
       <div>
         <input
@@ -30,20 +31,24 @@
       </div>
     </div>
 
-    <p>Choose the number of questions (from 10 to 50)</p>
-    <input
-      class="questions"
-      type="number"
-      min="10"
-      max="50"
-      v-model="questions"
-    />
+    <h2>Questions (from 10 to 50)</h2>
+    <v-text-field  class="question" type="number" v-model="questions"/>
+<div></div>
+   
+   
 
     <button @click="passEvent()">Start!</button>
+      
+
+    
+
+ </v-card>
+      
   </section>
 </template>
 
 <script>
+
 import axios from "../axios/axios";
 
 export default {
@@ -85,30 +90,36 @@ export default {
 
 <style lang="scss" scoped>
 @use "../quiz.scss";
-$bg: #11111c;
-
-#app{
-  background: $bg;
-}
+@use "../App.scss";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=EB+Garamond&display=swap');
 .home {
-  color:white;
-  background: $bg;
   width: min(95%, 400px);
-  @include quiz.flex();
+  @include App.flex();
 
+  .card{
+    background: rgb(196, 191, 191);
+    width:200%;
+   height: 450px;
+   text-align: center;
+   padding: 60px;
+  }
   h1 {
+    font-family: 'Cinzel', serif;
+   
+    color:black;
     font-size: 2.5rem;
   }
 
-  p {
-    color:white;
+  h2 {
+    font-family: 'EB Garamond', serif;
+    padding: 10px;
+    color:black;
     text-align: center;
     margin: 10px 0 5px;
     font-size: 1.3rem;
   }
 
   select {
-    color:gray;
     width: 80%;
     padding: 3px;
     font-size: 1rem;
@@ -120,41 +131,20 @@ $bg: #11111c;
   }
 
   .difficulties {
-    @include quiz.flex(row);
+    @include App.flex(row);
     gap: 7px;
 
-    div {
-      @include quiz.flex(row);
-      position: relative;
-      margin-bottom: 5px;
-      input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-        &:checked ~ .button {
-          background: quiz.$difficulty-checked;
-          box-shadow: quiz.$box-shadow;
-        }
-      }
-      .button {
-        transition: 0.3s;
-        display: inline-block;
-        width: 70px;
-        text-align: center;
-        color: black;
-        background: rgb(34, 34, 250);
-      }
-      &:hover input:not(:checked) ~ .button {
-        background: quiz.$difficulty-hover;
-      }
-    }
+    
   }
 
-  .questions {
-    width: 25%;
-    padding: 2px 5px;
+  .question {
+    width: 500px;
+   padding-left: 200px;
+   color:black;
+   font-weight:400;
+    
+
   }
+  
 }
 </style>

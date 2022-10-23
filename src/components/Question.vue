@@ -1,13 +1,18 @@
+
 <template>
   <section class="question">
+    <v-card class="card">
+      <div class="timer">
+      
+      <span class="clock"></span>
+      <p >0:{{ secondsLeft }}</p>
+    </div>
+
     <h1>
       <span>{{ index + 1 }}</span
       >. <span v-html="questionText"></span>
     </h1>
-    <div class="timer">
-      <span class="clock"></span>
-      <p>0:{{ secondsLeft }}</p>
-    </div>
+
 
     <div class="answers">
       <div
@@ -42,18 +47,23 @@
     >
       <p class="message">
         {{ message }}
+        
       </p>
       <button
         @click="goToNextQuestion"
         v-html="[
-          index == numberOfQuestions - 1 ? 'See results!' : 'Next question',
+          index == numberOfQuestions - 1 ? 'Results' : 'Next',
         ]"
       ></button>
     </div>
+
+    </v-card>
+    
   </section>
 </template>
 
 <script>
+
 export default {
   name: "Question",
   props: {
@@ -89,7 +99,6 @@ export default {
 
       this.numberOfQuestions = questions.length;
 
-      // Put all the answers in an array to shuffle them later
       this.answers.push(questions[index].correct_answer);
       questions[index].incorrect_answers.forEach((answer) => {
         this.answers.push(answer);
@@ -114,7 +123,7 @@ export default {
     },
 
     countdown() {
-      this.secondsLeft = 45;
+      this.secondsLeft = 50;
       this.timer = setInterval(() => {
         if (!this.userAnswered) {
           if (this.secondsLeft > 0) this.secondsLeft--;
@@ -123,7 +132,7 @@ export default {
             this.secondsLeft = `0${this.secondsLeft}`;
         }
         if (this.secondsLeft <= 0 && !this.userAnswered) {
-          this.message = "Time ran out! No points in this round.";
+          this.message = "Time's Up!";
           this.roundEnded = true;
         }
       }, 1000);
@@ -142,8 +151,8 @@ export default {
           event.target.innerText == this.correctAnswer ? true : false;
 
         this.message = this.isUserAnswerCorrect
-          ? "Good job! 🐢"
-          : "Better luck next time.";
+          ? "Correct!"
+          : "Wrong Answer";
 
         if (this.isUserAnswerCorrect) this.correctAnswers++;
 
@@ -184,30 +193,37 @@ export default {
 
 <style lang="scss" scoped>
 @use "../quiz.scss";
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@600&display=swap');
+
 .question {
+  
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(0, 0, 0);
   text-align: center;
-  width: min(95%, 550px);
+  .card{
+  background: rgb(82, 81, 81);
+  width:800px;
+   height: 570px;
+   text-align: center;
+   padding: 60px;
+  }
 
   h1 {
     width: 95%;
     margin: auto;
+    padding-bottom: 30px;
     text-align: justify;
   }
 
-  .timer {
-    @include quiz.flex(row);
-    margin: 16px;
 
-    .clock {
-      display: inline-block;
-      background: url(../assets/clock.svg) no-repeat center;
-      height: 25px;
-      margin-right: 5px;
-      aspect-ratio: 1/1;
-    }
+  .timer {
+   
+    
 
     p {
-      font-size: 1.3rem;
+      
+      font-weight: 700;
+      font-size:35px;
       color: quiz.$timer;
     }
   }
@@ -239,6 +255,7 @@ export default {
 
   .post-answer {
     animation: fadeIn 1.5s;
+    
 
     .message {
       font-size: 1.3rem;

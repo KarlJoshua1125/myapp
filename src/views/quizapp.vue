@@ -1,5 +1,7 @@
 <template>
-    <main>
+  <div>
+    <v-container class="container">
+      <main>
       <Home @startTheGame="startTheGame" v-if="showHome" />
       <Question
         v-if="gameStarted && quizData && !gameFinished"
@@ -13,6 +15,12 @@
         @resetGame="resetGame"
       />
     </main>
+
+
+    </v-container>
+    
+  </div>
+    
   </template>
   
   <script>
@@ -78,5 +86,7 @@
   main{
    @include App.flex(row)
   }
+
+  
 </style>
   

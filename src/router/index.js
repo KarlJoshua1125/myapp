@@ -17,6 +17,7 @@ import test from '../views/test.vue'
 import lab1 from '../views/Lab1.vue'
 import lab2 from '../views/Lab2.vue'
 import quiz from '../views/quizapp.vue'
+import axios from '../views/axios.vue'
 
 
 
@@ -123,6 +124,13 @@ const router = createRouter({
       name: 'quiz',
       component: quiz
     },
+
+    {
+      path: '/axios',
+      name: 'axios',
+      component: axios
+    },
+
 
 
 

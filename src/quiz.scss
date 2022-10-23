@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+
 @mixin flex($direction: column, $justify: center, $align: center) {
   display: flex;
   justify-content: $justify;
@@ -9,16 +10,17 @@
 
 $bg: #11111c;
 $box-shadow: 0 0 2px #cfcfff;
-$text: #fff;
+$text: rgb(0, 0, 0);
 $difficulty-btn: #f1f1f1;
 $difficulty-hover: #8e96ae;
 $difficulty-checked: #2a78df;
-$btn: #2a78df;
+$btn: #20d409;
 $btn-hover: #4c8cdf;
 $timer: #f22;
 $final-screen-heading: #2b7ce7;
 $correct: #00e900;
 $wrong: #ff4a4a;
+
 
 
 
