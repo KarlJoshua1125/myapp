@@ -1,5 +1,6 @@
 <template>
   <nav>
+    
     <v-toolbar app>
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
@@ -7,9 +8,12 @@
         <span>Gonzales</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+       <v-btn @click="toggleTheme">toggle theme</v-btn>
     </v-toolbar>
 
     <v-navigation-drawer app v-model="drawer">
+      <img class="logo" src="../assets/Karl.png" alt="Avatar">
+      <v-card-title>Karl Joshua Gonzales</v-card-title>
       <v-list-item
         v-for="item in items"
         :key="item.title"
@@ -26,7 +30,9 @@
 <script setup>
 import { ref } from "vue";
 import vuetify from "../plugins/vuetify";
+import { useTheme } from 'vuetify'
 
+const theme = useTheme()
 const drawer = ref(false);
 
 const items = ref([
@@ -37,9 +43,25 @@ const items = ref([
   { title: "Test Page", icon: "mdi-account", path: "/test" },
   { title: "Quiz App", icon: "mdi-account", path: "/quiz" },
   { title: "Astronomy", icon: "mdi-account", path: "/axios" },
+  { title: "Todo App", icon: "mdi-account", path: "/todo" },
+
 ]);
 
 function toggleDrawer() {
   return (drawer.value = !drawer.value);
 }
+
+function toggleTheme(){
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+} 
 </script>
+
+<style>
+.logo{
+  height: 100px;
+  margin-left: 60px;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+</style>
+
